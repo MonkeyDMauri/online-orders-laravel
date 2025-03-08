@@ -1,0 +1,162 @@
+
+.main-nav-bar {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem 0;
+    background-color: rgb(92, 92, 238);
+}
+
+.main-nav-bar > h1 {
+    font-size: 2rem;
+    cursor: default;
+}
+
+.main-greeting{
+    margin: 2rem;
+}
+
+.main-greeting h1{
+    font-size: 3rem;
+}
+
+
+.nav-links {
+    display: flex;
+    gap: 1.5em;
+    
+}
+
+.nav-links li{
+    list-style: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/*CREATE PRODUCT FORM*/
+
+.container {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.create-product-wrap {
+    background-color: rgb(67, 121, 168);
+    margin: 2rem;
+    padding: 2rem;
+    width: fit-content;
+    border-radius: .5rem;
+}
+
+.create-product-wrap h1{
+    font-size: 2rem;
+}
+
+.create-product-wrap button{
+    font-size: 1.5rem;
+    background-color: black;
+    color: aliceblue;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+.create-product-form {
+    display: flex;
+    gap: 3rem;
+    margin-top: 1rem;
+}
+
+.create-product-form input, select{
+    border: solid 1px black;
+    padding: .5rem;
+    border-radius: .5rem;
+}
+
+.logout-popup-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1000;
+    background-color: rgb(0, 0, 0, 0.6);
+
+    pointer-events: none;
+    visibility: hidden;
+    transition: 300ms ease-in-out all;   
+}
+
+.logout-popup-wrapper.active {
+    pointer-events: auto;
+    visibility: visible;
+}
+
+.logout-popup-wrapper.active > .logout-popup-wrap{
+    transform: translateY(0);
+}
+
+.logout-popup-wrap {
+    background-color: gray;
+    padding: 1rem;
+    transform: translateY(20px);
+    transition: all ease-in-out 300ms;
+    border-radius: .5rem;
+}
+
+.logout-yes, .logout-no {
+    cursor: pointer;
+}
+
+/* LIST OF PRODUCTS */
+
+.products-wrapper {
+    background-color: rgb(173, 172, 172);
+    border-radius: .5rem;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.products-wrap {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.product-container {
+    background-color: rgb(67, 121, 168);
+    padding: 1rem;
+    border-radius: .5rem;
+}
+
+.product-name {
+    font-size: 2rem;
+}
+
+.add-btn, .submit-order-btn{
+    padding: .5rem;
+    border-radius: .5rem;
+    font-size: 1rem;
+    background-color: rgb(0, 0, 0);
+    cursor: pointer;
+    color: aliceblue;
+}
+
+.order-details-wrap {
+    background-color: aliceblue;
+    border-radius: .5rem;
+    padding: 1rem;
+    color: black;
+    width: 400px;
+}
+
+.order-list {
+    min-height: 200px;
+    max-height: 200px;
+}
