@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -41,5 +43,51 @@ class UserController extends Controller
         auth()->logout();
 
         return response()->json(['success' => true]);
+    }
+
+    public function updateUsername(Request $request) {
+        $input = $request->validate([
+            'new-name' => ['required', 'unique:users,name']
+        ]);
+
+        $user = auth()->user();
+        $user->update([
+            'name' => $input['new-name']
+        ]);
+
+        return redirect()->back()->with('success', 'Your username has been updated!');
+    }
+
+    public function updateEmail(Request $request) {
+        $input = $request->validate([
+            'new-email' => ['required', 'email', 'unique:users,email']
+        ]);
+
+        $user = auth()->user();
+        $user->update([
+            'email' => $input["new-email"]
+        ]);
+
+        return redirect()->back()->with('success', 'your email has been updated');
+    }
+
+    public function updatePassword(Request $request) {
+        $input = $request->validate([
+            'current_password' => 'required',
+            'new_password' => 'required|confirmed'
+        ]);
+
+        $user = auth()->user();
+
+        if (!Hash::check($input['current_password'], $user->password)) {
+            return back()->with('error', 'wrong password');
+        }
+
+        $user->update([
+            'password' => Hash::make($input['new_password'])
+        ]);
+
+
+        return back()->with('success', 'password has been updated!');
     }
 }

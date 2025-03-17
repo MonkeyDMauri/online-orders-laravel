@@ -58,13 +58,18 @@
         <div class="order-details-wrap">
             <h1 style="font-size: 1.5rem;">My Order</h1>
             <hr>
-            <div class="order-list">
-                <div style="display: flex; justify-content:center; flex-direction:column; align-items:center; height:100%;">
-                    <p>Order empty</p>
-                </div>
+            <ul class="order-list">
+                
                 {{-- products added to your order go here --}}
+            </ul>
+            <div>
+                <button class="submit-order-btn">Submit order</button>
+                <button class="clear-order-btn">Clear order</button>
+                <span class="order-total">
+                    {{-- order total goes here --}}
+                </span>
             </div>
-            <button class="submit-order-btn">Submit Order</button>
+            
         </div>
     </div>
 
@@ -73,6 +78,18 @@
 
         <div class="products-wrap">
             {{-- list of products goes here --}}
+        </div>
+    </div>
+
+    {{-- @yield('my-orders') --}}
+    <div class="my-orders-wrapper">
+        <div class="my-orders-wrap">
+            
+            <h1>My ordersssss</h1>
+
+            <ul class="my-orders-list">
+                {{-- list of my orders go here --}}
+            </ul>
         </div>
     </div>
 
